@@ -27,4 +27,7 @@ public interface MvpPresenter<V extends MvpView> {
      *
      */
     void setUserAsLoggedOut();
+
+
+
 }

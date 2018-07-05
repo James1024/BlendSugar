@@ -1,7 +1,7 @@
 package colin.com.blendsugar.ui.base;
 
 import com.androidnetworking.error.ANError;
-
+import colin.com.blendsugar.SugarApp;
 import colin.com.blendsugar.data.IDataManager;
 import colin.com.blendsugar.utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
@@ -11,20 +11,16 @@ import io.reactivex.disposables.CompositeDisposable;
  * @date 2018/7/4
  */
 public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
-    private final IDataManager mDataManager;
-    private final SchedulerProvider mSchedulerProvider;
-    private final CompositeDisposable mCompositeDisposable;
-
+    private  IDataManager mDataManager;
+    private  SchedulerProvider mSchedulerProvider;
+    private  CompositeDisposable mCompositeDisposable;
     private V mMvpView;
 
-    public BasePresenter(IDataManager dataManager,
-                         SchedulerProvider schedulerProvider,
-                         CompositeDisposable compositeDisposable) {
-        this.mDataManager = dataManager;
-        this.mSchedulerProvider = schedulerProvider;
-        this.mCompositeDisposable = compositeDisposable;
+    public BasePresenter() {
+        this.mDataManager = SugarApp.getInstance().getDataManager();
+        this.mSchedulerProvider = SugarApp.getInstance().getSchedulerProvider();
+        this.mCompositeDisposable = SugarApp.getInstance().getCompositeDisposable();
     }
-
 
     @Override
     public void onAttach(V mvpView) {
@@ -47,8 +43,6 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     public void setUserAsLoggedOut() {
 
     }
-
-
     /**
      * @return
      */
