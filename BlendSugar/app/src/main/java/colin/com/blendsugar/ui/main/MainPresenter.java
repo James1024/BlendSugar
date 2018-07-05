@@ -1,4 +1,4 @@
-package colin.com.blendsugar.ui;
+package colin.com.blendsugar.ui.main;
 
 import colin.com.blendsugar.ui.base.BasePresenter;
 

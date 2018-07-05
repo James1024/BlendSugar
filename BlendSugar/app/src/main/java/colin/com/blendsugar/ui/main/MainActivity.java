@@ -1,19 +1,10 @@
-package colin.com.blendsugar.ui;
+package colin.com.blendsugar.ui.main;
 
 
 import android.support.annotation.NonNull;
 
-import com.androidnetworking.error.ANError;
-
 import colin.com.blendsugar.R;
-import colin.com.blendsugar.SugarApp;
-import colin.com.blendsugar.data.DataManager;
-import colin.com.blendsugar.data.IDataManager;
 import colin.com.blendsugar.ui.base.BaseActivity;
-import colin.com.blendsugar.ui.base.MvpView;
-import colin.com.blendsugar.utils.rx.AppSchedulerProvider;
-import colin.com.blendsugar.utils.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
 
 public class MainActivity extends BaseActivity implements MainV{
     private MainPresenter presenter;
