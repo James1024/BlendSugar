@@ -4,6 +4,9 @@ package colin.com.blendsugar.utils.log;
 import android.util.Log;
 import colin.com.blendsugar.BuildConfig;
 
+/**
+ * @author yiche
+ */
 public class AppLogger {
     private static boolean logDebug=true;
     private static boolean debug= BuildConfig.DEBUG&&logDebug;

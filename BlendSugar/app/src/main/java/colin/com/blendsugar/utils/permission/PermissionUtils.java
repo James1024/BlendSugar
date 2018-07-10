@@ -5,12 +5,11 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.Fragment;
-
-import com.yiche.elita_lib.R;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import colin.com.blendsugar.R;
 
 /**
  * Created by nieyunlong on 16/12/12.
@@ -111,10 +110,10 @@ public class PermissionUtils {
                 List<String> nevenAskAginPermissions = PermissionListUtils.findNeverAskAgainPermissions(activity, permissions);
                 List<String> deniedWithoutNevenAskAginPermission = PermissionListUtils.findDeniedPermissionWithoutNeverAskAgain(activity, permissions);
                 StringBuilder sb = new StringBuilder();
-                sb.append(activity.getString(R.string.elita_base_refuse_permission_start_setting));
+                sb.append(activity.getString(R.string.refuse_permission_start_setting));
                 sb.append(PermissionListUtils.toString(nevenAskAginPermissions));
                 if (deniedWithoutNevenAskAginPermission != null && !deniedWithoutNevenAskAginPermission.isEmpty()) {
-                    sb.append(activity.getString(R.string.elita_base_refuse_permission_next_ask));
+                    sb.append(activity.getString(R.string.refuse_permission_next_ask));
                     sb.append(PermissionListUtils.toString(deniedWithoutNevenAskAginPermission));
                 }
                 exePermissionFailAsNeverAskAgain(sb.toString());

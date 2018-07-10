@@ -26,14 +26,18 @@ import java.util.List;
  */
 public class CanvasView extends View {
 
-    // Enumeration for Mode
+    /**
+     * // Enumeration for Mode
+     */
     public enum Mode {
         DRAW,
         TEXT,
         ERASER;
     }
 
-    // Enumeration for Drawer
+    /**
+     *  Enumeration for Drawer
+     */
     public enum Drawer {
         PEN,
         LINE,
@@ -267,7 +271,6 @@ public class CanvasView extends View {
             }
 
             y += this.fontSize;
-
             canvas.drawText(substring, textX, y, this.textPaint);
         }
     }
