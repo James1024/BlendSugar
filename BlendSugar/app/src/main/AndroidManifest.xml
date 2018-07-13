@@ -22,11 +22,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.view.CustomActivity"
+            android:name=".ui.view.custom.CustomActivity"
             android:label="@string/title_activity_custom"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity android:name=".ui.architecture.mvp.TabActivity" />
+        <activity android:name=".ui.architecture.ArchitectureActivity" />
+        <activity android:name=".ui.view.CustomListActivity" />
+        <activity android:name=".ui.view.pupop.PupopActivity" />
+        <activity android:name=".ui.function.CalibrationActivity" />
     </application>
 
 </manifest>

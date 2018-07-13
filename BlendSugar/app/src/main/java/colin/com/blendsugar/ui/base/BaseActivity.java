@@ -1,8 +1,10 @@
 package colin.com.blendsugar.ui.base;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
 
@@ -11,6 +13,7 @@ import butterknife.ButterKnife;
  * @date 2018/7/4
  */
 public abstract class BaseActivity extends AppCompatActivity implements  MvpView{
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,8 +75,8 @@ public abstract class BaseActivity extends AppCompatActivity implements  MvpView
     }
 
     @Override
-    public void showMessage(String message) {
-
+    public void showMessage(@NonNull String message) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override

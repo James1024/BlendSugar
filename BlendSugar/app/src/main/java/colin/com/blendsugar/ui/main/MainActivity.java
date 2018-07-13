@@ -7,10 +7,12 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
-import butterknife.OnClick;
 import colin.com.blendsugar.R;
+import colin.com.blendsugar.ui.architecture.ArchitectureActivity;
 import colin.com.blendsugar.ui.base.BaseActivity;
-import colin.com.blendsugar.ui.view.CustomActivity;
+import colin.com.blendsugar.ui.function.CalibrationActivity;
+import colin.com.blendsugar.ui.view.CustomListActivity;
+import colin.com.blendsugar.ui.view.custom.CustomActivity;
 import hugo.weaving.DebugLog;
 
 /**
@@ -34,8 +36,6 @@ public class MainActivity extends BaseActivity implements MainV ,MainAdapter.OnI
         presenter.onAttach(this);
         presenter.doLogin();
         initData();
-
-
     }
 
     private void initData() {
@@ -69,11 +69,13 @@ public class MainActivity extends BaseActivity implements MainV ,MainAdapter.OnI
     public void onItemClickListener(View view, int position) {
         switch (position){
             case 0:
-                CustomActivity.lanuch(this);
+                CustomListActivity.lanuch(this);
                 break;
             case 1:
-
+                ArchitectureActivity.lanuch(this);
                 break;
+            case 2:
+                CalibrationActivity.lanuch(this);
                 default:
         }
 
