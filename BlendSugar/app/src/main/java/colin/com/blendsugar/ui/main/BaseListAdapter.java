@@ -10,13 +10,13 @@ import java.util.List;
 import colin.com.blendsugar.R;
 
 /**
- * @author yiche
- * @date 2018/7/10
+ * @author wanglr
+ * @date 2018/7/13
  */
-public class MainAdapter extends RecyclerView.Adapter {
+public class BaseListAdapter extends RecyclerView.Adapter{
     private List<String> mList;
 
-    public MainAdapter(List<String> list) {
+    public BaseListAdapter(List<String> list) {
         mList=list;
     }
 
@@ -24,25 +24,29 @@ public class MainAdapter extends RecyclerView.Adapter {
         void onItemClickListener(View view, int position);
     }
 
-    private OnItemClickListener listener;
+    public BaseListAdapter getAdapter(){
+        return this;
+    }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    private BaseListAdapter.OnItemClickListener listener;
+
+    public void setOnItemClickListener(BaseListAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main, parent, false);
-        ViewHolder holder = new ViewHolder(v);
-        holder.mTextView =  v.findViewById(R.id.textView);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_base, parent, false);
+        BaseListAdapter.ViewHolder holder = new BaseListAdapter.ViewHolder(v);
+        holder.mTextView = v.findViewById(R.id.textView);
 
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        ViewHolder viewHolder=(ViewHolder)holder;
+        BaseListAdapter.ViewHolder viewHolder=(BaseListAdapter.ViewHolder)holder;
         viewHolder.mTextView.setText(mList.get(position));
         if(listener!=null){
             viewHolder.mTextView.setOnClickListener(new View.OnClickListener() {

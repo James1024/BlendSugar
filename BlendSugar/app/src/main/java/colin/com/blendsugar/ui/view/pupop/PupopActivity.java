@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -25,6 +26,7 @@ import java.util.List;
 
 import colin.com.blendsugar.R;
 import colin.com.blendsugar.widget.CustomPopWindow;
+import hugo.weaving.DebugLog;
 
 /**
  * @author wanglr
@@ -263,6 +265,49 @@ public class PupopActivity extends AppCompatActivity implements View.OnClickList
 
         return data;
     }
+
+    float x, y;
+
+    @DebugLog
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                x = event.getX();
+                y = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                if (event.getY() - y > 200) {
+                    finish();
+                }
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                break;
+                default:
+
+        }
+        return super.onTouchEvent(event);
+    }
+    @DebugLog
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+            case MotionEvent.ACTION_UP:
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                break;
+            default:
+        }
+        return super.dispatchTouchEvent(event);
+    }
+
+
 
     /**
      * 处理弹出显示内容、点击事件等逻辑

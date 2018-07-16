@@ -1,55 +1,33 @@
 package colin.com.blendsugar.ui.main;
 
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import java.util.ArrayList;
-import java.util.List;
-import butterknife.BindView;
-import colin.com.blendsugar.R;
 import colin.com.blendsugar.ui.architecture.ArchitectureActivity;
-import colin.com.blendsugar.ui.base.BaseActivity;
-import colin.com.blendsugar.ui.function.CalibrationActivity;
-import colin.com.blendsugar.ui.view.CustomListActivity;
-import colin.com.blendsugar.ui.view.custom.CustomActivity;
-import hugo.weaving.DebugLog;
+import colin.com.blendsugar.ui.function.FunctionListActivity;
+import colin.com.blendsugar.ui.view.ViewListActivity;
 
 /**
  * @author yiche
  */
-@DebugLog
-public class MainActivity extends BaseActivity implements MainV ,MainAdapter.OnItemClickListener{
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+
+public class MainActivity extends BaseListActivity implements MainV, BaseListAdapter.OnItemClickListener {
+
     private MainPresenter presenter;
-    private List<String> list;
-    private  MainAdapter mainAdapter;
-    @Override
-    public int getLayout() {
-        return R.layout.activity_main;
-    }
 
     @Override
     public void setUp() {
-        presenter = new MainPresenter();
+        super.setUp();
+        presenter = new MainPresenter(this);
         presenter.onAttach(this);
         presenter.doLogin();
         initData();
     }
 
     private void initData() {
-        list=new ArrayList<>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainAdapter=new MainAdapter(list);
-        recyclerView.setAdapter(mainAdapter);
-        mainAdapter.setOnItemClickListener(this);
-
-        list.add("111");
-        list.add("112");
-        list.add("113");
-        mainAdapter.notifyDataSetChanged();
-
+        list.add("custom");
+        list.add("architecture");
+        list.add("function");
+        mAdapter.notifyDataSetChanged();
+        mAdapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -64,19 +42,18 @@ public class MainActivity extends BaseActivity implements MainV ,MainAdapter.OnI
     }
 
 
-
     @Override
     public void onItemClickListener(View view, int position) {
-        switch (position){
+        switch (position) {
             case 0:
-                CustomListActivity.lanuch(this);
+                ViewListActivity.lanuch(this);
                 break;
             case 1:
                 ArchitectureActivity.lanuch(this);
                 break;
             case 2:
-                CalibrationActivity.lanuch(this);
-                default:
+                FunctionListActivity.lanuch(this);
+            default:
         }
 
     }

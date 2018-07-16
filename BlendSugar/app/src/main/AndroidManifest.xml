@@ -29,9 +29,11 @@
         </activity>
         <activity android:name=".ui.architecture.mvp.TabActivity" />
         <activity android:name=".ui.architecture.ArchitectureActivity" />
-        <activity android:name=".ui.view.CustomListActivity" />
+        <activity android:name=".ui.view.ViewListActivity" />
         <activity android:name=".ui.view.pupop.PupopActivity" />
-        <activity android:name=".ui.function.CalibrationActivity" />
+        <activity android:name=".ui.function.FunctionListActivity" />
+        <activity android:name=".ui.function.touch.TouchActivity" />
+        <activity android:name=".ui.architecture.mvc.LoginActivity" />
     </application>
 
 </manifest>

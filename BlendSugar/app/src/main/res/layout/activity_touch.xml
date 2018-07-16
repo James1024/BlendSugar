@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colin.com.blendsugar.ui.function.touch.TLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <colin.com.blendsugar.ui.function.touch.TButton
+        android:id="@+id/tbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="TClick"
+        android:text="点击"
+        />
+
+</colin.com.blendsugar.ui.function.touch.TLinearLayout>
